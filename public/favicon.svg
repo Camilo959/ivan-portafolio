@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="hsl(250, 65%, 65%)" />
+            <stop offset="100%" stop-color="hsl(222, 46%, 4%)" />
+        </linearGradient>
+    </defs>
+
+    <!-- Fondo -->
+    <rect
+        width="100"
+        height="100"
+        rx="20"
+        fill="url(#gradient)"
+    />
+
+    <!-- Texto -->
+    <text
+        x="50%"
+        y="55%"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="42"
+        font-weight="700"
+        fill="white"
+        letter-spacing="2"
+    >
+        IM
+    </text>
+</svg>

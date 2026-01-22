@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion as Motion } from "framer-motion"
 
 const projects = [
     {
@@ -40,7 +40,7 @@ export const Project = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project, key) => (
-                    <motion.div
+                    <Motion.div
                         key={key}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export const Project = () => {
                                 <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform" />
                             </a>
                         </div>
-                    </motion.div>
+                    </Motion.div>
                 ))}
             </div>
         </div>
