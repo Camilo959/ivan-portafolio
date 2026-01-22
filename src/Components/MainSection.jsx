@@ -13,14 +13,19 @@ export const MainSection = () => {
         <div className="container max-w-4xl mx-auto text-center z-10">
             <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold">
-                    <span className="text-secondary opacity-0 animate-fade-in">Hi, I'm </span>
-                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1"> Ivan</span>
-                    <span className="text-secondary opacity-0 animate-fade-in-delay-2"> Developer</span>
+                    <span className="text-secondary opacity-0 animate-fade-in">
+                        Hola, soy{" "}
+                    </span>
+                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1">
+                        Ivan
+                    </span>
+                    <span className="text-secondary opacity-0 animate-fade-in-delay-2">
+                        {" "}Desarrollador web
+                    </span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                    Desarrollador web full-stack con 4 años de experiencia. Creo interfaces modernas,
-                    responsivas y altamente funcionales usando React, Tailwind CSS y tecnologías actuales.
+                    Desarrollador web interesado en crear aplicaciones modernas, funcionales y bien diseñadas, cuidando la experiencia de usuario y la mantenibilidad del código.
                 </p>
             </div>
             <div className="pt-8 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
