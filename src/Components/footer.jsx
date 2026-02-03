@@ -27,7 +27,7 @@ export const Footer = () => {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-primary">Ivan</h3>
-                        <p className="text-muted text-sm mt-2">Desarrollador Web Full Stack</p>
+                        <p className="text-secondary/70 text-sm mt-2">Desarrollador Web Full Stack</p>
                     </Motion.div>
 
                     {/* Links */}
@@ -43,7 +43,7 @@ export const Footer = () => {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="text-muted/70 hover:text-primary transition-colors text-sm"
+                                        className="text-secondary/70 dark:text-secondary/80 hover:text-primary transition-colors text-sm"
                                     >
                                         {link.name}
                                     </a>
@@ -98,7 +98,7 @@ export const Footer = () => {
 
                 {/* Divider */}
                 <div className="border-t border-primary/10 pt-8">
-                    <p className="text-center text-muted text-sm">
+                    <p className="text-center text-secondary/70 dark:text-secondary/80 text-sm">
                         &copy; {new Date().getFullYear()} Ivan Developer. Todos los derechos reservados.
                     </p>
                 </div>
