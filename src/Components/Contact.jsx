@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { SiInstagram, SiLinkedin, SiX, SiGmail, SiResend } from "react-icons/si"
+import { SiInstagram, SiLinkedin, SiX, SiGmail } from "react-icons/si"
+import { IoIosSend } from "react-icons/io";
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -100,7 +101,7 @@ export const Contact = () => {
                             {/* Redes Sociales */}
                             <div className="flex items-start space-x-4 group">
                                 <div className="p-3 rounded-full bg-primary/20 group-hover:bg-primary/30 transition-colors">
-                                    <SiResend className="h-6 w-6 text-primary" />
+                                    <IoIosSend className="h-6 w-6 text-primary" />
                                 </div>
                                 <div>
                                     <h4 className="font-medium text-secondary mb-2">Sígueme</h4>
@@ -215,7 +216,7 @@ export const Contact = () => {
                                 type="submit"
                                 className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                             >
-                                <SiResend size={18} />
+                                <IoIosSend size={18} />
                                 Enviar Mensaje
                             </button>
                         </form>
