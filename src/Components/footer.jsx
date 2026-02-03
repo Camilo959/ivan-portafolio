@@ -11,7 +11,7 @@ export const Footer = () => {
 
     const socials = [
         { icon: SiGithub, href: "https://github.com/Camilo959", label: "Github" },
-        { icon: SiLinkedin, href: "#", label: "LinkedIn" },
+        { icon: SiLinkedin, href: "https://www.linkedin.com/in/ivan-camilo-morales-74248736a", label: "LinkedIn" },
         { icon: SiX, href: "#", label: "X" },
         { icon: SiGmail, href: "#", label: "Email" },
     ]
