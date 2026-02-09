@@ -1,7 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { useState } from "react"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa"
-import { SiTypescript, SiTailwindcss, SiNextdotjs, SiPostgresql } from "react-icons/si"
+import { SiTypescript, SiTailwindcss, SiNextdotjs, SiPostgresql, SiPhp } from "react-icons/si"
 import { SiLaravel, SiMongodb, SiGithub } from "react-icons/si"
 
 export const Skills = () => {
@@ -18,6 +18,7 @@ export const Skills = () => {
         { name: "Laravel", icon: SiLaravel, category: "backend", color: "#ff2d20" },
         { name: "MongoDB", icon: SiMongodb, category: "backend", color: "#13aa52" },
         { name: "PostgreSQL", icon: SiPostgresql, category: "backend", color: "#336791" },
+        { name: "PHP", icon: SiPhp, category: "backend", color: "#777bb4" },
         { name: "Git/GitHub", icon: SiGithub, category: "tools", color: "#f05032" },
     ]
 
