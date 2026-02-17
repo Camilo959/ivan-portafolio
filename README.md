@@ -42,7 +42,7 @@ src/
 
 1. Clona el repositorio:
 ```bash
-git clone <tu-repositorio>
+git clone https://github.com/Camilo959/ivan-portafolio
 cd portafolio
 ```
 
