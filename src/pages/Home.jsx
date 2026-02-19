@@ -15,7 +15,8 @@ export const Home = () => {
             <BackgroundAnimations />
             {/* Navbar */}
             <Navbar />
-            {/* Main Content */}
+            {/* Main Content and Previsualization */}
+
             <main>
                 <MainSection />
                 <AboutSection />
