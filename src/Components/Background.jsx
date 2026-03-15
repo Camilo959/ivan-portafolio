@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 export const BackgroundAnimations = () => {
     const [stars, setStars] = useState([])
 
-    useEffect(() => {
-        generateStarsAnimation()
-
-        // Si quieres que se regenere al redimensionar la ventana:
-        const handleResize = () => generateStarsAnimation()
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
-
-    const generateStarsAnimation = () => {
+    const generateStarsAnimation = useCallback(() => {
         const countStars = Math.floor((window.innerWidth * window.innerHeight) / 1000)
         const neonColors = ["#ffffff", "rgb(19,0,247)", "#ffffff", "rgb(254,6,110)", "#ffffff"]
 
@@ -25,15 +16,37 @@ export const BackgroundAnimations = () => {
                 x: Math.random() * 100,
                 y: Math.random() * 100,
                 opacity: Math.random() * 0.4 + 0.3,
-                animationDuration: (Math.random() * 5 + 1).toFixed(2), // duración en segundos
+                animationDuration: (Math.random() * 5 + 1).toFixed(2),
+                animationDelay: (Math.random() * 2).toFixed(2),
                 color,
             })
         }
         setStars(newStars)
-    }
+    }, [])
+
+    useEffect(() => {
+        generateStarsAnimation()
+
+        let frameId = null
+        const handleResize = () => {
+            if (frameId) return
+            frameId = window.requestAnimationFrame(() => {
+                generateStarsAnimation()
+                frameId = null
+            })
+        }
+
+        window.addEventListener("resize", handleResize)
+        return () => {
+            window.removeEventListener("resize", handleResize)
+            if (frameId) {
+                window.cancelAnimationFrame(frameId)
+            }
+        }
+    }, [generateStarsAnimation])
 
     return (
-        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div aria-hidden="true" className="fixed inset-0 overflow-hidden pointer-events-none z-0">
             {stars.map((item) => (
                 <div
                     key={item.id}
@@ -45,8 +58,8 @@ export const BackgroundAnimations = () => {
                         top: `${item.y}%`,
                         opacity: item.opacity,
                         background: item.color,
-                        animationDuration: `${item.animationDuration}s`, // importante: unidad s
-                        animationDelay: `${Math.random() * 2}s`,
+                        animationDuration: `${item.animationDuration}s`,
+                        animationDelay: `${item.animationDelay}s`,
                     }}
                 ></div>
             ))}

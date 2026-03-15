@@ -5,6 +5,7 @@ export const Button = ({
     variant = "primary", 
     size = "md",
     className, 
+    type = "button",
     ...props 
 }) => {
     const baseStyles = "rounded-lg font-medium transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
@@ -23,6 +24,7 @@ export const Button = ({
     
     return (
         <button 
+            type={type}
             className={cn(baseStyles, variants[variant], sizes[size], className)} 
             {...props}
         >

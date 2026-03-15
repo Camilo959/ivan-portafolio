@@ -1,21 +1,21 @@
 import { motion as Motion } from "framer-motion";
 import { SiGithub, SiLinkedin, SiX, SiGmail } from "react-icons/si"
 
+const LINKS = [
+    { name: "Inicio", href: "#home" },
+    { name: "Sobre", href: "#about" },
+    { name: "Proyectos", href: "#projects" },
+    { name: "Contacto", href: "#contact" },
+]
+
+const SOCIALS = [
+    { icon: SiGithub, href: "https://github.com/Camilo959", label: "Github" },
+    { icon: SiLinkedin, href: "https://www.linkedin.com/in/ivan-camilo-morales-74248736a", label: "LinkedIn" },
+    { icon: SiX, href: "https://x.com", label: "X" },
+    { icon: SiGmail, href: "mailto:ivan.morales.ds@gmail.com", label: "Email" },
+]
+
 export const Footer = () => {
-    const links = [
-        { name: "Inicio", href: "#home" },
-        { name: "Sobre", href: "#about" },
-        { name: "Proyectos", href: "#projects" },
-        { name: "Contacto", href: "#contact" },
-    ]
-
-    const socials = [
-        { icon: SiGithub, href: "https://github.com/Camilo959", label: "Github" },
-        { icon: SiLinkedin, href: "https://www.linkedin.com/in/ivan-camilo-morales-74248736a", label: "LinkedIn" },
-        { icon: SiX, href: "#", label: "X" },
-        { icon: SiGmail, href: "#", label: "Email" },
-    ]
-
     return (
         <footer className="border-t border-primary/10 bg-background/50 py-12">
             <div className="max-w-7xl mx-auto px-4">
@@ -39,7 +39,7 @@ export const Footer = () => {
                     >
                         <h4 className="font-semibold text-secondary mb-4">Navegación</h4>
                         <ul className="space-y-2">
-                            {links.map(link => (
+                            {LINKS.map(link => (
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
@@ -63,16 +63,19 @@ export const Footer = () => {
                         <h4 className="font-semibold text-secondary mb-4 text-center">Sígueme</h4>
 
                         <div className="flex gap-3 justify-center">
-                            {socials.map(social => {
+                            {SOCIALS.map(social => {
                                 const Icon = social.icon
+                                const isExternal = social.href.startsWith("http")
                                 return (
                                     <a
                                         key={social.label}
                                         href={social.href}
+                                        target={isExternal ? "_blank" : undefined}
+                                        rel={isExternal ? "noopener noreferrer" : undefined}
                                         aria-label={social.label}
                                         className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all hover:scale-110"
                                     >
-                                        <Icon size={20} />
+                                        <Icon aria-hidden="true" size={20} />
                                     </a>
                                 )
                             })}

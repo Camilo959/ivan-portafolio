@@ -39,12 +39,14 @@ export const Project = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, key) => (
+                {projects.map((project, index) => {
+                    const hasExternalUrl = project.url && project.url !== "#"
+                    return (
                     <Motion.div
-                        key={key}
+                        key={project.id}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: key * 0.1 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                         className="group bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 border border-primary/10 hover:border-primary/50"
                     >
@@ -52,6 +54,8 @@ export const Project = () => {
                             <img 
                                 src={project.image} 
                                 alt={project.title} 
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -59,9 +63,9 @@ export const Project = () => {
 
                         <div className="p-6 space-y-4">
                             <div className="flex flex-wrap gap-2">
-                                {project.tags.map((tag, idx) => (
+                                {project.tags.map((tag) => (
                                     <span 
-                                        key={idx}
+                                        key={`${project.id}-${tag}`}
                                         className="px-3 py-1 text-xs font-medium rounded-full bg-primary/15 text-primary hover:bg-primary/25 transition-colors"
                                     >
                                         {tag}
@@ -72,18 +76,26 @@ export const Project = () => {
                             <h3 className="text-xl font-semibold text-secondary group-hover:text-primary transition-colors">{project.title}</h3>
                             <p className="text-secondary/70 text-sm line-clamp-2">{project.description}</p>
                             
-                            <a 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                href={project.url} 
-                                className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all mt-4 group/link"
-                            >
-                                Ver Proyecto 
-                                <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                            </a>
+                            {hasExternalUrl ? (
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={project.url}
+                                    aria-label={`Abrir ${project.title} en una nueva pestaña`}
+                                    className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all mt-4 group/link"
+                                >
+                                    Ver Proyecto
+                                    <ExternalLink aria-hidden="true" size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                                </a>
+                            ) : (
+                                <span className="inline-flex items-center gap-2 text-muted mt-4 cursor-not-allowed">
+                                    Próximamente
+                                </span>
+                            )}
                         </div>
                     </Motion.div>
-                ))}
+                    )
+                })}
             </div>
         </div>
     </section>

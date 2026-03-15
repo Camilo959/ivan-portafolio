@@ -2,29 +2,39 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react"
 import { cn } from "../lib/utils";
 
+const THEME_EVENT = "theme-change"
+
 export const ThemeToggle = ({ className }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-        if (storedTheme === "dark") {
-            setIsDarkMode(true);
-            document.documentElement.classList.add("dark");
-        } else {
-            setIsDarkMode(false);
-            document.documentElement.classList.remove("dark");
+        const applyResolvedTheme = () => {
+            const storedTheme = localStorage.getItem("theme")
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+            const shouldUseDark = storedTheme ? storedTheme === "dark" : prefersDark
+
+            document.documentElement.classList.toggle("dark", shouldUseDark)
+            setIsDarkMode(shouldUseDark)
+        }
+
+        applyResolvedTheme()
+
+        const syncTheme = () => applyResolvedTheme()
+        window.addEventListener("storage", syncTheme)
+        window.addEventListener(THEME_EVENT, syncTheme)
+
+        return () => {
+            window.removeEventListener("storage", syncTheme)
+            window.removeEventListener(THEME_EVENT, syncTheme)
         }
     }, [])
+
     const toggleTheme = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            setIsDarkMode(false);
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            setIsDarkMode(true);
-        }
+        const nextTheme = isDarkMode ? "light" : "dark"
+        document.documentElement.classList.toggle("dark", nextTheme === "dark")
+        localStorage.setItem("theme", nextTheme)
+        setIsDarkMode(nextTheme === "dark")
+        window.dispatchEvent(new Event(THEME_EVENT))
     }
 
     return (

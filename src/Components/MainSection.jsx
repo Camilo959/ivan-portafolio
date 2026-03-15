@@ -1,13 +1,13 @@
 import { ArrowDown } from "lucide-react"
 
 export const MainSection = () => {
-    return <section id="main"
+    return <section id="home"
         className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
     >
         {/* Fondo animado con gradientes */}
-        <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob motion-reduce:animate-none"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-blob animation-delay-4000 motion-reduce:animate-none"></div>
         </div>
 
         <div className="container max-w-4xl mx-auto text-center z-10">
@@ -17,7 +17,7 @@ export const MainSection = () => {
                         Hola, soy{" "}
                     </span>
                     <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1">
-                        Ivan
+                        Ivan Camilo,
                     </span>
                     <span className="text-secondary opacity-0 animate-fade-in-delay-2">
                         {" "}Desarrollador web
@@ -37,9 +37,9 @@ export const MainSection = () => {
                 </a>
             </div>
         </div>
-        <div className="absolute text-secondary bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <div className="absolute text-secondary bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce motion-reduce:animate-none">
             <span>Scroll</span>
-            <ArrowDown className="h-6 w-6 text-primary" />
+            <ArrowDown aria-hidden="true" className="h-6 w-6 text-primary" />
         </div>
     </section>
 }
