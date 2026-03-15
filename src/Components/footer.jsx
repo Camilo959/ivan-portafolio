@@ -1,4 +1,3 @@
-import { motion as Motion } from "framer-motion";
 import { SiGithub, SiLinkedin, SiX, SiGmail } from "react-icons/si"
 
 const LINKS = [
@@ -21,22 +20,13 @@ export const Footer = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Logo/Nombre */}
-                    <Motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <div className="opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100">
                         <h3 className="text-2xl font-bold text-primary">Ivan</h3>
                         <p className="text-secondary/70 text-sm mt-2">Desarrollador Web Full Stack</p>
-                    </Motion.div>
+                    </div>
 
                     {/* Links */}
-                    <Motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        viewport={{ once: true }}
-                    >
+                    <div style={{ animationDelay: "100ms" }} className="opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100">
                         <h4 className="font-semibold text-secondary mb-4">Navegación</h4>
                         <ul className="space-y-2">
                             {LINKS.map(link => (
@@ -50,16 +40,10 @@ export const Footer = () => {
                                 </li>
                             ))}
                         </ul>
-                    </Motion.div>
+                    </div>
 
                     {/* Redes Sociales */}
-                    <Motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="flex flex-col items-center"
-                    >
+                    <div style={{ animationDelay: "200ms" }} className="flex flex-col items-center opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100">
                         <h4 className="font-semibold text-secondary mb-4 text-center">Sígueme</h4>
 
                         <div className="flex gap-3 justify-center">
@@ -80,15 +64,10 @@ export const Footer = () => {
                                 )
                             })}
                         </div>
-                    </Motion.div>
+                    </div>
 
                     {/* CTA */}
-                    <Motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        viewport={{ once: true }}
-                    >
+                    <div style={{ animationDelay: "300ms" }} className="opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100">
                         <h4 className="font-semibold text-secondary mb-4">¿Trabajemos juntos?</h4>
                         <a
                             href="#contact"
@@ -96,7 +75,7 @@ export const Footer = () => {
                         >
                             Contactar
                         </a>
-                    </Motion.div>
+                    </div>
                 </div>
 
                 {/* Divider */}

@@ -1,5 +1,4 @@
 import { ExternalLink } from "lucide-react"
-import { motion as Motion } from "framer-motion"
 
 const projects = [
     {
@@ -42,13 +41,10 @@ export const Project = () => {
                 {projects.map((project, index) => {
                     const hasExternalUrl = project.url && project.url !== "#"
                     return (
-                    <Motion.div
+                    <div
                         key={project.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 border border-primary/10 hover:border-primary/50"
+                        style={{ animationDelay: `${index * 100}ms` }}
+                        className="group bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 border border-primary/10 hover:border-primary/50 opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100"
                     >
                         <div className="relative h-48 overflow-hidden bg-surface">
                             <img 
@@ -93,7 +89,7 @@ export const Project = () => {
                                 </span>
                             )}
                         </div>
-                    </Motion.div>
+                    </div>
                     )
                 })}
             </div>

@@ -1,4 +1,3 @@
-import { motion as Motion } from "framer-motion";
 import { useMemo, useState } from "react"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa"
 import { SiTypescript, SiTailwindcss, SiNextdotjs, SiPostgresql, SiPhp } from "react-icons/si"
@@ -58,14 +57,10 @@ export const Skills = () => {
                     {filteredSkills.map((skill, index) => {
                         const Icon = skill.icon
                         return (
-                            <Motion.div
+                            <div
                                 key={skill.name}
-                                initial={{ opacity: 0, scale: 0.6 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: index * 0.06 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.15, rotate: 5 }}
-                                className="relative group cursor-pointer"
+                                style={{ animationDelay: `${index * 60}ms` }}
+                                className="relative group cursor-pointer opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100 transition-transform duration-300 hover:scale-110 hover:rotate-2"
                             >
                                 <div
                                     className="w-28 h-28 rounded-xl flex flex-col items-center justify-center border-2 transition-all duration-300 relative"
@@ -99,7 +94,7 @@ export const Skills = () => {
                                         {skill.name}
                                     </div>
                                 </div>
-                            </Motion.div>
+                            </div>
                         )
                     })}
                 </div>

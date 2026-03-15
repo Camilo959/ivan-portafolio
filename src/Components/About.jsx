@@ -1,5 +1,4 @@
 import { Bug, Code, Palette } from "lucide-react"
-import { motion as Motion } from "framer-motion";
 
 const ABOUT_SKILLS = [
     { icon: Code, title: "Desarrollo Web", description: "Creo aplicaciones web modernas y escalables con React y Next.js", color: "from-blue-500 to-indigo-600" },
@@ -15,13 +14,7 @@ export const AboutSection = () => {
                     Sobre <span className="text-primary">Mí</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-secondary">
-                    <Motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="space-y-6"
-                    >
+                    <div className="space-y-6 opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100">
                         <h3 className="text-2xl font-semibold">Desarrollador Web & Tecnología</h3>
                         <p className="text-muted/80 leading-relaxed">
                             Me interesa crear aplicaciones web funcionales y visualmente atractivas, enfocándome en que sean fáciles de usar y mantener.
@@ -37,19 +30,16 @@ export const AboutSection = () => {
                                 Solicitar CV
                             </a>
                         </div>
-                    </Motion.div>
+                    </div>
 
                     <div className="grid grid-cols-1 gap-6">
                         {ABOUT_SKILLS.map((skill, index) => {
                             const Icon = skill.icon;
                             return (
-                                <Motion.div
+                                <div
                                     key={skill.title}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-br from-surface to-surface/50 border border-primary/10 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/20"
+                                    style={{ animationDelay: `${index * 100}ms` }}
+                                    className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-br from-surface to-surface/50 border border-primary/10 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/20 opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100"
                                 >
                                     <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
                                     <div className="relative z-10 space-y-3">
@@ -59,7 +49,7 @@ export const AboutSection = () => {
                                         <h4 className="text-lg font-bold text-secondary">{skill.title}</h4>
                                         <p className="text-sm text-muted/80">{skill.description}</p>
                                     </div>
-                                </Motion.div>
+                                </div>
                             );
                         })}
                     </div>
