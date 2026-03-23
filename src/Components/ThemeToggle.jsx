@@ -1,11 +1,25 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cn } from "../lib/utils";
 
 const THEME_EVENT = "theme-change"
+const THEME_TRANSITION_CLASS = "theme-power-transition"
+const THEME_POWER_ON_CLASS = "theme-power-on"
+const THEME_POWER_OFF_CLASS = "theme-power-off"
+const THEME_TRANSITION_DURATION_MS = 240
+const THEME_OVERLAY_DURATION_MS = 200
+const THEME_SWITCH_DELAY_MS = 40
+
+const applyTheme = (nextTheme) => {
+    document.documentElement.classList.toggle("dark", nextTheme === "dark")
+    localStorage.setItem("theme", nextTheme)
+    window.dispatchEvent(new Event(THEME_EVENT))
+}
 
 export const ThemeToggle = ({ className }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const switchTimerRef = useRef(null)
+    const cleanupTimerRef = useRef(null)
 
     useEffect(() => {
         const applyResolvedTheme = () => {
@@ -26,15 +40,48 @@ export const ThemeToggle = ({ className }) => {
         return () => {
             window.removeEventListener("storage", syncTheme)
             window.removeEventListener(THEME_EVENT, syncTheme)
+
+            if (switchTimerRef.current) {
+                window.clearTimeout(switchTimerRef.current)
+            }
+
+            if (cleanupTimerRef.current) {
+                window.clearTimeout(cleanupTimerRef.current)
+            }
         }
     }, [])
 
     const toggleTheme = () => {
         const nextTheme = isDarkMode ? "light" : "dark"
-        document.documentElement.classList.toggle("dark", nextTheme === "dark")
-        localStorage.setItem("theme", nextTheme)
+        const root = document.documentElement
+
+        if (switchTimerRef.current) {
+            window.clearTimeout(switchTimerRef.current)
+        }
+
+        if (cleanupTimerRef.current) {
+            window.clearTimeout(cleanupTimerRef.current)
+        }
+
+        root.classList.remove(THEME_TRANSITION_CLASS, THEME_POWER_ON_CLASS, THEME_POWER_OFF_CLASS)
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                root.classList.add(THEME_TRANSITION_CLASS, nextTheme === "dark" ? THEME_POWER_ON_CLASS : THEME_POWER_OFF_CLASS)
+            })
+        })
+
+        switchTimerRef.current = window.setTimeout(() => {
+            applyTheme(nextTheme)
+            switchTimerRef.current = null
+        }, THEME_SWITCH_DELAY_MS)
+
+        cleanupTimerRef.current = window.setTimeout(() => {
+            root.classList.remove(THEME_TRANSITION_CLASS, THEME_POWER_ON_CLASS, THEME_POWER_OFF_CLASS)
+            cleanupTimerRef.current = null
+        }, THEME_TRANSITION_DURATION_MS)
+
         setIsDarkMode(nextTheme === "dark")
-        window.dispatchEvent(new Event(THEME_EVENT))
     }
 
     return (

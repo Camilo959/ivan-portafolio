@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 export const Card = ({ children, className = "", hover = true }) => {
     return (
         <div className={cn(
-            "rounded-lg bg-card border border-primary/10 p-6 transition-all duration-300",
+            "theme-card rounded-lg bg-card border border-primary/10 p-6 transition-all duration-300",
             hover && "hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20",
             className
         )}>
