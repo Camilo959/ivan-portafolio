@@ -1,4 +1,4 @@
-import { SiInstagram, SiLinkedin, SiX, SiGmail } from "react-icons/si"
+import { SiInstagram, SiLinkedin, SiX, SiGmail, SiWhatsapp } from "react-icons/si"
 import { IoIosSend } from "react-icons/io";
 
 const SOCIALS = [
@@ -16,6 +16,11 @@ const SOCIALS = [
         href: "https://instagram.com",
         label: "Instagram",
         icon: SiInstagram,
+    },
+    {
+        href: "https://wa.me/573174783043?text=Hola%20Ivan,%20vi%20tu%20portafolio%20y%20quiero%20contactarte",
+        label: "WhatsApp",
+        icon: SiWhatsapp,
     },
 ]
 
