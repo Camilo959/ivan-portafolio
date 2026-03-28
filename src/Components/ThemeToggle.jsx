@@ -1,5 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react"
+import { useTranslation } from "react-i18next"
 import { cn } from "../lib/utils";
 
 const THEME_EVENT = "theme-change"
@@ -17,6 +18,7 @@ const applyTheme = (nextTheme) => {
 }
 
 export const ThemeToggle = ({ className }) => {
+    const { t } = useTranslation()
     const [isDarkMode, setIsDarkMode] = useState(false);
     const switchTimerRef = useRef(null)
     const cleanupTimerRef = useRef(null)
@@ -87,7 +89,7 @@ export const ThemeToggle = ({ className }) => {
     return (
         <button
             onClick={toggleTheme}
-            aria-label={isDarkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            aria-label={isDarkMode ? t("theme.toLight") : t("theme.toDark")}
             className={cn("p-2 rounded-full transition-colors duration-300 focus:outline-none hover:bg-accent/20", className)}
         >
             {isDarkMode ? <Sun className="h-6 w-6 text-yellow-300" /> : <Moon className="h-6 w-6 text-blue-900" />}

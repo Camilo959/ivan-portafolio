@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { useTranslation } from "react-i18next"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa"
 import { SiTypescript, SiTailwindcss, SiNextdotjs, SiPostgresql, SiPhp } from "react-icons/si"
 import { SiLaravel, SiMongodb, SiGithub } from "react-icons/si"
@@ -6,21 +7,22 @@ import { SiLaravel, SiMongodb, SiGithub } from "react-icons/si"
 const CATEGORIES = ["all", "frontend", "backend", "tools"]
 
 const SKILLS = [
-    { name: "HTML", icon: FaHtml5, category: "frontend", color: "#ff6b6b" },
-    { name: "CSS", icon: FaCss3Alt, category: "frontend", color: "#4ecdc4" },
-    { name: "JavaScript", icon: FaJs, category: "frontend", color: "#ffd93d" },
-    { name: "React", icon: FaReact, category: "frontend", color: "#61dafb" },
-    { name: "TypeScript", icon: SiTypescript, category: "frontend", color: "#3178c6" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, category: "frontend", color: "#06b6d4" },
-    { name: "Next.js", icon: SiNextdotjs, category: "frontend", color: "#111827" },
-    { name: "Laravel", icon: SiLaravel, category: "backend", color: "#ff2d20" },
-    { name: "MongoDB", icon: SiMongodb, category: "backend", color: "#13aa52" },
-    { name: "PostgreSQL", icon: SiPostgresql, category: "backend", color: "#336791" },
-    { name: "PHP", icon: SiPhp, category: "backend", color: "#777bb4" },
-    { name: "Git/GitHub", icon: SiGithub, category: "tools", color: "#f05032" },
+    { key: "html", icon: FaHtml5, category: "frontend", color: "#ff6b6b" },
+    { key: "css", icon: FaCss3Alt, category: "frontend", color: "#4ecdc4" },
+    { key: "javascript", icon: FaJs, category: "frontend", color: "#ffd93d" },
+    { key: "react", icon: FaReact, category: "frontend", color: "#61dafb" },
+    { key: "typescript", icon: SiTypescript, category: "frontend", color: "#3178c6" },
+    { key: "tailwind", icon: SiTailwindcss, category: "frontend", color: "#06b6d4" },
+    { key: "nextjs", icon: SiNextdotjs, category: "frontend", color: "#111827" },
+    { key: "laravel", icon: SiLaravel, category: "backend", color: "#ff2d20" },
+    { key: "mongodb", icon: SiMongodb, category: "backend", color: "#13aa52" },
+    { key: "postgresql", icon: SiPostgresql, category: "backend", color: "#336791" },
+    { key: "php", icon: SiPhp, category: "backend", color: "#777bb4" },
+    { key: "gitgithub", icon: SiGithub, category: "tools", color: "#f05032" },
 ]
 
 export const Skills = () => {
+    const { t } = useTranslation()
     const [activeCategory, setActiveCategory] = useState("all")
 
     const filteredSkills = useMemo(() => (
@@ -33,7 +35,7 @@ export const Skills = () => {
         <section id="skills" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-6xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary">
-                    Mis <span className="text-primary">Habilidades</span>
+                    {t("skills.title.prefix")} <span className="text-primary">{t("skills.title.highlight")}</span>
                 </h2>
 
                 {/* Categorías */}
@@ -47,7 +49,7 @@ export const Skills = () => {
                             className={`px-4 py-2 rounded-lg font-medium transition-all
                 ${activeCategory === cat ? "bg-primary text-white" : "bg-secondary/10 text-secondary hover:bg-primary/20"}`}
                         >
-                            {cat === "all" ? "Todas" : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                            {t(`skills.categories.${cat}`)}
                         </button>
                     ))}
                 </div>
@@ -56,9 +58,11 @@ export const Skills = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 place-items-center">
                     {filteredSkills.map((skill, index) => {
                         const Icon = skill.icon
+                        const skillName = t(`skills.items.${skill.key}`)
+
                         return (
                             <div
-                                key={skill.name}
+                                key={skill.key}
                                 style={{ animationDelay: `${index * 60}ms` }}
                                 className="relative group cursor-pointer opacity-0 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100 transition-transform duration-300 hover:scale-110 hover:rotate-2"
                             >
@@ -85,13 +89,13 @@ export const Skills = () => {
                                             <Icon aria-hidden="true" size={40} />
                                         </div>
                                         <div className="text-sm font-semibold text-center text-secondary group-hover:text-primary transition-colors">
-                                            {skill.name}
+                                            {skillName}
                                         </div>
                                     </div>
 
                                     {/* Tooltip */}
                                     <div className="absolute -top-6 opacity-0 group-hover:opacity-100 bg-secondary text-white text-xs px-2 py-1 rounded shadow-lg transition-opacity pointer-events-none">
-                                        {skill.name}
+                                        {skillName}
                                     </div>
                                 </div>
                             </div>

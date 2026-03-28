@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 import { cn } from "../lib/utils"
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/Components/ThemeToggle"
+import { LanguageSwitcher } from "@/Components/LanguageSwitcher"
 
 const NAV_ITEMS = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
+    { key: "home", href: "#home" },
+    { key: "about", href: "#about" },
+    { key: "projects", href: "#projects" },
+    { key: "skills", href: "#skills" },
+    { key: "contact", href: "#contact" },
 ]
 
 export const Navbar = () => {
+    const { t } = useTranslation()
     const [scrolling, setScrolling] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -51,8 +54,8 @@ export const Navbar = () => {
             <div className="container flex items-center justify-between">
                 <a className="text-xl font-bold  flex items-center" href="#home">
                     <span className="relative z-10">
-                        <span className="text-glow text-primary"> Ivan </span> <span className="text-secondary">
-                            Portafolio
+                        <span className="text-glow text-primary"> {t("common.brandName")} </span> <span className="text-secondary">
+                            {t("common.portfolio")}
                         </span>
                     </span>
                 </a>
@@ -62,9 +65,11 @@ export const Navbar = () => {
                     {/* large screen Navbar */}
                     <div className="hidden md:flex space-x-8">
                         {NAV_ITEMS.map((item) => (
-                            <a key={item.href} href={item.href} className="hover:text-primary text-secondary transition-colors duration-300">{item.name}</a>
+                            <a key={item.href} href={item.href} className="hover:text-primary text-secondary transition-colors duration-300">{t(`navbar.${item.key}`)}</a>
                         ))}
                     </div>
+
+                    <LanguageSwitcher />
 
                     {/* Theme toggle (moves with navbar) */}
                     <ThemeToggle />
@@ -74,7 +79,7 @@ export const Navbar = () => {
                         type="button"
                         onClick={() => setIsMenuOpen((prev) => !prev)}
                         className="md:hidden p-2 z-50 text-foreground"
-                        aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                        aria-label={isMenuOpen ? t("navbar.menu.close") : t("navbar.menu.open")}
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-menu"
                     >
@@ -95,8 +100,9 @@ export const Navbar = () => {
                         {NAV_ITEMS.map((item) => (
                             <a key={item.href} href={item.href} className="hover:text-primary transition-colors duration-300"
                                 onClick={() => setIsMenuOpen(false)}
-                            >{item.name}</a>
+                            >{t(`navbar.${item.key}`)}</a>
                         ))}
+                        <LanguageSwitcher />
                         {/* Theme toggle also inside mobile menu */}
                         <ThemeToggle />
                     </div>

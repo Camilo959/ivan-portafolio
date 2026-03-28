@@ -1,45 +1,46 @@
 import { ExternalLink } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
-const projects = [
+const PROJECTS = [
     {
         id: 1,
-        title: "Chat Bot Like Gemini",
-        description: "Chatbot interactivo basado en Gemini AI con interfaz moderna y responsiva",
+        key: "geminiBot",
         image: "/projects/chatbot.png",
-        url: "#",
-        tags: ["Html", "Css", "Javascript"]
+        url: "#"
     },
     {
         id: 2,
-        title: "Website Three js",
-        description: "Landing page 3D con animaciones inmersivas usando Three.js",
+        key: "threeWebsite",
         image: "/projects/butterfly-three-js.png",
-        url: "#",
-        tags: ["Html", "Css", "Javascript", "Three.js"]
+        url: "#"
     },
     {
         id: 3,
-        title: "Landing Intro Page",
-        description: "Página de introducción con efectos visuales atractivos",
+        key: "landingIntro",
         image: "/projects/landiing-page.png",
-        url: "#",
-        tags: ["Html", "Css", "Javascript"]
+        url: "#"
     }
 ]
 
 export const Project = () => {
+    const { t } = useTranslation()
+
     return <section id="projects" className="py-24 px-4 relative">
         <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-secondary">
-                Proyectos <span className="text-primary">Destacados</span>
+                {t("projects.title.prefix")} <span className="text-primary">{t("projects.title.highlight")}</span>
             </h2>
             <p className="text-center text-secondary mb-12 max-w-2xl mx-auto">
-                Estos son algunos de mis proyectos más destacados. Cada uno fue creado con atención al detalle y optimización de rendimiento.
+                {t("projects.description")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, index) => {
+                {PROJECTS.map((project, index) => {
                     const hasExternalUrl = project.url && project.url !== "#"
+                    const projectTitle = t(`projects.items.${project.key}.title`)
+                    const projectDescription = t(`projects.items.${project.key}.description`)
+                    const tags = t(`projects.items.${project.key}.tags`, { returnObjects: true })
+
                     return (
                     <div
                         key={project.id}
@@ -49,7 +50,7 @@ export const Project = () => {
                         <div className="relative h-48 overflow-hidden bg-surface">
                             <img 
                                 src={project.image} 
-                                alt={project.title} 
+                                alt={projectTitle} 
                                 loading="lazy"
                                 decoding="async"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -59,7 +60,7 @@ export const Project = () => {
 
                         <div className="p-6 space-y-4">
                             <div className="flex flex-wrap gap-2">
-                                {project.tags.map((tag) => (
+                                {tags.map((tag) => (
                                     <span 
                                         key={`${project.id}-${tag}`}
                                         className="px-3 py-1 text-xs font-medium rounded-full bg-primary/15 text-primary hover:bg-primary/25 transition-colors"
@@ -69,23 +70,23 @@ export const Project = () => {
                                 ))}
                             </div>
                             
-                            <h3 className="text-xl font-semibold text-secondary group-hover:text-primary transition-colors">{project.title}</h3>
-                            <p className="text-secondary/70 text-sm line-clamp-2">{project.description}</p>
+                            <h3 className="text-xl font-semibold text-secondary group-hover:text-primary transition-colors">{projectTitle}</h3>
+                            <p className="text-secondary/70 text-sm line-clamp-2">{projectDescription}</p>
                             
                             {hasExternalUrl ? (
                                 <a
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     href={project.url}
-                                    aria-label={`Abrir ${project.title} en una nueva pestaña`}
+                                    aria-label={t("projects.openProject", { title: projectTitle })}
                                     className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all mt-4 group/link"
                                 >
-                                    Ver Proyecto
+                                    {t("projects.viewProject")}
                                     <ExternalLink aria-hidden="true" size={16} className="group-hover/link:translate-x-1 transition-transform" />
                                 </a>
                             ) : (
                                 <span className="inline-flex items-center gap-2 text-muted mt-4 cursor-not-allowed">
-                                    Próximamente
+                                    {t("projects.comingSoon")}
                                 </span>
                             )}
                         </div>

@@ -1,0 +1,158 @@
+{
+  "languageSwitcher": {
+    "label": "Language",
+    "switchTo": "Switch language to {{language}}"
+  },
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "common": {
+    "brandName": "Ivan",
+    "portfolio": "Portfolio",
+    "profileName": "Ivan Camilo,"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "menu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    }
+  },
+  "main": {
+    "greeting": "Hi, I'm",
+    "role": "Web developer",
+    "description": "Web developer focused on building modern, functional, and well-crafted applications with strong user experience and maintainable code.",
+    "viewProjects": "View projects",
+    "contactMe": "Contact me",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": {
+      "prefix": "About",
+      "highlight": "Me"
+    },
+    "heading": "Web Development & Technology",
+    "paragraphOne": "I am interested in building functional and visually appealing web applications, focusing on usability and maintainability.",
+    "paragraphTwo": "I enjoy learning new tools and technologies, improving user experience, and applying best practices in every project.",
+    "contactMe": "Contact me",
+    "requestCv": "Request CV",
+    "skills": {
+      "webDevelopment": {
+        "title": "Web Development",
+        "description": "I build modern, scalable web applications with React and Next.js"
+      },
+      "bugFixing": {
+        "title": "Bug Fixing",
+        "description": "I identify and solve complex interface and performance issues"
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "I design clean and friendly interfaces using Figma and Tailwind"
+      }
+    }
+  },
+  "skills": {
+    "title": {
+      "prefix": "My",
+      "highlight": "Skills"
+    },
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools"
+    },
+    "items": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "nextjs": "Next.js",
+      "laravel": "Laravel",
+      "mongodb": "MongoDB",
+      "postgresql": "PostgreSQL",
+      "php": "PHP",
+      "gitgithub": "Git/GitHub"
+    }
+  },
+  "projects": {
+    "title": {
+      "prefix": "Featured",
+      "highlight": "Projects"
+    },
+    "description": "These are some of my featured projects. Each one was built with attention to detail and performance optimization.",
+    "viewProject": "View project",
+    "comingSoon": "Coming soon",
+    "openProject": "Open {{title}} in a new tab",
+    "items": {
+      "geminiBot": {
+        "title": "Chat Bot Like Gemini",
+        "description": "Interactive chatbot based on Gemini AI with a modern, responsive interface",
+        "tags": ["HTML", "CSS", "JavaScript"]
+      },
+      "threeWebsite": {
+        "title": "Website Three.js",
+        "description": "3D landing page with immersive animations powered by Three.js",
+        "tags": ["HTML", "CSS", "JavaScript", "Three.js"]
+      },
+      "landingIntro": {
+        "title": "Landing Intro Page",
+        "description": "Intro page with attractive visual effects",
+        "tags": ["HTML", "CSS", "JavaScript"]
+      }
+    }
+  },
+  "contact": {
+    "title": {
+      "prefix": "Get in",
+      "highlight": "Touch"
+    },
+    "description": "Do you have a project in mind or want to collaborate? I am always open to discussing new opportunities.",
+    "email": "Email",
+    "phone": "Phone",
+    "follow": "Follow me",
+    "openSocial": "Open {{label}} in a new tab",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "role": "Full Stack Web Developer",
+    "navigation": "Navigation",
+    "follow": "Follow me",
+    "workTogether": "Shall we work together?",
+    "contact": "Contact",
+    "rights": "{{year}} Ivan Developer. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "socials": {
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "email": "Email"
+    }
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The route you are trying to visit does not exist.",
+    "goHome": "Back to home"
+  }
+}

@@ -76,8 +76,3 @@ Esto generará una carpeta `dist` con los archivos optimizados listos para despl
 ## Créditos
 
 Basado en un proyecto de referencia de [ola67](https://github.com/ola67), adaptado y modificado para uso personal. Puedes ver el repositorio original aquí: [Portfolio-React](https://github.com/ola67/Portfolio-React)
-
-
-## Licencia
-
-Licencia MIT.

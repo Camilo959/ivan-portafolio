@@ -1,0 +1,158 @@
+{
+  "languageSwitcher": {
+    "label": "Idioma",
+    "switchTo": "Cambiar idioma a {{language}}"
+  },
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "common": {
+    "brandName": "Ivan",
+    "portfolio": "Portafolio",
+    "profileName": "Ivan Camilo,"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "menu": {
+      "open": "Abrir menú",
+      "close": "Cerrar menú"
+    }
+  },
+  "main": {
+    "greeting": "Hola, soy",
+    "role": "Desarrollador web",
+    "description": "Desarrollador web interesado en crear aplicaciones modernas, funcionales y bien diseñadas, cuidando la experiencia de usuario y la mantenibilidad del código.",
+    "viewProjects": "Ver proyectos",
+    "contactMe": "Contactarme",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": {
+      "prefix": "Sobre",
+      "highlight": "Mí"
+    },
+    "heading": "Desarrollador Web & Tecnología",
+    "paragraphOne": "Me interesa crear aplicaciones web funcionales y visualmente atractivas, enfocándome en que sean fáciles de usar y mantener.",
+    "paragraphTwo": "Disfruto aprender nuevas herramientas y tecnologías, mejorar la experiencia del usuario y aplicar buenas prácticas en cada proyecto.",
+    "contactMe": "Contactarme",
+    "requestCv": "Solicitar CV",
+    "skills": {
+      "webDevelopment": {
+        "title": "Desarrollo Web",
+        "description": "Creo aplicaciones web modernas y escalables con React y Next.js"
+      },
+      "bugFixing": {
+        "title": "Soluciono Bugs",
+        "description": "Identifico y resuelvo problemas complejos en la interfaz y rendimiento"
+      },
+      "uiux": {
+        "title": "Diseño UI/UX",
+        "description": "Diseño interfaces limpias y amigables usando Figma y Tailwind"
+      }
+    }
+  },
+  "skills": {
+    "title": {
+      "prefix": "Mis",
+      "highlight": "Habilidades"
+    },
+    "categories": {
+      "all": "Todas",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas"
+    },
+    "items": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "nextjs": "Next.js",
+      "laravel": "Laravel",
+      "mongodb": "MongoDB",
+      "postgresql": "PostgreSQL",
+      "php": "PHP",
+      "gitgithub": "Git/GitHub"
+    }
+  },
+  "projects": {
+    "title": {
+      "prefix": "Proyectos",
+      "highlight": "Destacados"
+    },
+    "description": "Estos son algunos de mis proyectos más destacados. Cada uno fue creado con atención al detalle y optimización de rendimiento.",
+    "viewProject": "Ver proyecto",
+    "comingSoon": "Próximamente",
+    "openProject": "Abrir {{title}} en una nueva pestaña",
+    "items": {
+      "geminiBot": {
+        "title": "Chat Bot Like Gemini",
+        "description": "Chatbot interactivo basado en Gemini AI con interfaz moderna y responsiva",
+        "tags": ["HTML", "CSS", "JavaScript"]
+      },
+      "threeWebsite": {
+        "title": "Website Three.js",
+        "description": "Landing page 3D con animaciones inmersivas usando Three.js",
+        "tags": ["HTML", "CSS", "JavaScript", "Three.js"]
+      },
+      "landingIntro": {
+        "title": "Landing Intro Page",
+        "description": "Página de introducción con efectos visuales atractivos",
+        "tags": ["HTML", "CSS", "JavaScript"]
+      }
+    }
+  },
+  "contact": {
+    "title": {
+      "prefix": "Ponte en",
+      "highlight": "Contacto"
+    },
+    "description": "¿Tienes un proyecto en mente o quieres colaborar? Siempre estoy abierto a discutir nuevas oportunidades.",
+    "email": "Email",
+    "phone": "Teléfono",
+    "follow": "Sígueme",
+    "openSocial": "Abrir {{label}} en una nueva pestaña",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "role": "Desarrollador Web Full Stack",
+    "navigation": "Navegación",
+    "follow": "Sígueme",
+    "workTogether": "¿Trabajemos juntos?",
+    "contact": "Contactar",
+    "rights": "{{year}} Ivan Developer. Todos los derechos reservados.",
+    "links": {
+      "home": "Inicio",
+      "about": "Sobre",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    },
+    "socials": {
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "email": "Email"
+    }
+  },
+  "theme": {
+    "toLight": "Cambiar a modo claro",
+    "toDark": "Cambiar a modo oscuro"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La ruta que intentas visitar no existe.",
+    "goHome": "Volver al inicio"
+  }
+}

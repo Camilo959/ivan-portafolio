@@ -1,6 +1,9 @@
 import { ArrowDown } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export const MainSection = () => {
+    const { t } = useTranslation()
+
     return <section id="home"
         className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
     >
@@ -14,31 +17,31 @@ export const MainSection = () => {
             <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold">
                     <span className="text-secondary opacity-0 animate-fade-in">
-                        Hola, soy{" "}
+                        {t("main.greeting")}{" "}
                     </span>
                     <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1">
-                        Ivan Camilo,
+                        {t("common.profileName")}
                     </span>
                     <span className="text-secondary opacity-0 animate-fade-in-delay-2">
-                        {" "}Desarrollador web
+                        {" "}{t("main.role")}
                     </span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                    Desarrollador web interesado en crear aplicaciones modernas, funcionales y bien diseñadas, cuidando la experiencia de usuario y la mantenibilidad del código.
+                    {t("main.description")}
                 </p>
             </div>
             <div className="pt-8 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#projects" className="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 hover:scale-105 active:scale-95">
-                    Ver Proyectos
+                    {t("main.viewProjects")}
                 </a>
                 <a href="#contact" className="px-8 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary/10 font-medium transition-all duration-300 active:scale-95">
-                    Contactarme
+                    {t("main.contactMe")}
                 </a>
             </div>
         </div>
         <div className="absolute text-secondary bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce motion-reduce:animate-none">
-            <span>Scroll</span>
+            <span>{t("main.scroll")}</span>
             <ArrowDown aria-hidden="true" className="h-6 w-6 text-primary" />
         </div>
     </section>
